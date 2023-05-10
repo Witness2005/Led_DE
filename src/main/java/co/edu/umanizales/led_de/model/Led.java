@@ -10,6 +10,8 @@ import java.time.LocalTime;
 @AllArgsConstructor
 public class Led{
     private int id;
+
+
     private boolean state;
 
     private LocalTime dateOn;

@@ -33,6 +33,18 @@ public class ListDE {
 
         size++;
     }
+    public List<Led> toList() {
+        List<Led> leds = new ArrayList<>();
+        Node temp = head;
+
+        while (temp != null) {
+            leds.add(temp.getData());
+            temp = temp.getNext();
+        }
+
+        return leds;
+    }
+
     public void addToStart(Led led) {
         if (head != null) {
             Node newNode = new Node(led);
@@ -43,15 +55,8 @@ public class ListDE {
         }
         size++;
     }
-    public List<Led> toList() {
-        List<Led> pets = new ArrayList<>();
-        Node temp = head;
 
-        while (temp != null) {
-            pets.add(temp.getData());
-            temp = temp.getNext();
-        }
 
-        return pets;
-    }}
+
+}
 
