@@ -41,6 +41,43 @@ public class ListDEController {
     }
 
 
+    @PostMapping(path = "/addstart")
+    public ResponseEntity<ResponseDTO> addKidtoStart(@RequestBody LedDTO ledDTO){
+
+        listDEService.getLeds().addToStart(
+                new Led(ledDTO.getIdentification(),false,null,null));
+
+        return new ResponseEntity<>(new ResponseDTO(
+                200,"Se ha adicionado el led",
+                null), HttpStatus.OK);
+
+    }
+
+
+
+
+    @GetMapping("/turnon")
+    public ResponseEntity<ResponseDTO> turnOn() {
+        listDEService.getLeds().turnOn();
+        return new ResponseEntity<>(new ResponseDTO(200, "Leds Prendidos", null), HttpStatus.OK);
+    }
+
+
+
+    @GetMapping("/reboot")
+    public ResponseEntity<ResponseDTO> reboot() {
+        listDEService.getLeds().reboot();
+        return new ResponseEntity<>(new ResponseDTO(200, "Todos han sido reiniciados", null), HttpStatus.OK);
+    }
+
+    @GetMapping("/blink")
+    public ResponseEntity<ResponseDTO> blinkMiddle() {
+
+            listDEService.getLeds().blink();
+            return ResponseEntity.ok(new ResponseDTO(
+                    200, "LEDs parpadeantes", null));
+
+    }
 
 
 
